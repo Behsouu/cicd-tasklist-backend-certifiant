@@ -58,7 +58,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('sonarqube-server-1') {
+                withSonarQubeEnv('sonarqube-backend-certifiant') {
                     sh "${SCANNER_HOME}/bin/sonar-scanner"
                 }
             }
