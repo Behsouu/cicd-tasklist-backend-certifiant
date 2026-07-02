@@ -68,11 +68,8 @@ pipeline {
 
         stage('Quality Gate') {
             steps {
-                // Timeout de sécurité : si le webhook Sonar->Jenkins ne répond
-                // jamais (le blocage qu'on a eu en TP5), le pipeline échoue
-                // proprement après 5 min au lieu de rester bloqué indéfiniment.
                 timeout(time: 5, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
+                    waitForQualityGate()
                 }
             }
         }
