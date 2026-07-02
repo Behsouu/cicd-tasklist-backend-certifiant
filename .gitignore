@@ -124,9 +124,11 @@ dist
 .DS_Store
 
 # Prisma
-# Uncomment the line below if you don't want to commit your SQLite database file
-# *.db
-# *.db-journal
+*.db
+*.db-journal
+
+# Env
+.env
 
 # Build folder
 dist/
