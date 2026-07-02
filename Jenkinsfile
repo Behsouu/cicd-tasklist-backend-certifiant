@@ -58,8 +58,10 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('sonarqube-backend-certifiant') {
-                    sh "${SCANNER_HOME}/bin/sonar-scanner"
+                retry(3) {
+                    withSonarQubeEnv('sonarqube-backend-certifiant') {
+                        sh "${SCANNER_HOME}/bin/sonar-scanner"
+                    }
                 }
             }
         }
